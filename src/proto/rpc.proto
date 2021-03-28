@@ -1,0 +1,18 @@
+syntax = "proto3";
+package rpc;
+
+import "pot.proto";
+import "record.proto";
+
+service RPC {
+    rpc CreatePot (CreatePotRequest) returns (CreatePotResponse);
+}
+
+message CreatePotRequest {
+    string accountId = 1;
+    string name = 2;
+}
+
+message CreatePotResponse {
+    pot.Pot pot = 1;
+}

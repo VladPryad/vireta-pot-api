@@ -1,0 +1,11 @@
+syntax = "proto3";
+package record;
+
+message Record {
+    string id = 1;
+    string ph = 2;
+    string humidity = 3;
+    string salinity = 4;
+    int32 index = 5;
+    int64 timestamp = 6;
+}
