@@ -3091,14 +3091,19 @@
         "signature": "dc8c92656d573fc4449196a8e08481ad10124dce94d3ca78e562d4ca25538fad",
         "affectsGlobalScope": false
       },
+      "../src/pot/dto/getallpotsbyid.dto.ts": {
+        "version": "ea6bfe29a9f386d60bf1920a5642ccaf44a8983e60ba72f25d3dc035c1ee9571",
+        "signature": "ac49443cb8a660754b92937ca965ac58998b7da96fff1dee4bd9209eb215d5bc",
+        "affectsGlobalScope": false
+      },
       "../src/pot/pot.service.ts": {
-        "version": "316d5ffaa50f729ac94f64cae86c57980accba7eca0a36f876a62b9ec3b1d895",
-        "signature": "c78ee934cb978ca338c37c2d87d3fa55f0851b38902d626a248d86643b9a9e42",
+        "version": "5dcd02225fc0493dad255b89bd2cc83301efb55a05253bb783432f501367ea12",
+        "signature": "77ac2856093444161bb47edc3c0ea785fea141b33d9073bdc6f1a9c3deba44c9",
         "affectsGlobalScope": false
       },
       "../src/pot/pot.controller.ts": {
-        "version": "f96d247723c81be28355a81b6897647c9facc6e6b5acec5737e79d14b28252d1",
-        "signature": "ea5d4ab818020e973539d2ab08d51c8b5a665763e8d101fa43bd77f1be80bb23",
+        "version": "7ff04c7e99a3c0b2a9fdbf06a63e1d1dd65d01db3deaf007977d6e937fba2943",
+        "signature": "2062d754746b08a10043610511057ac6125172f351650374c80433d705019320",
         "affectsGlobalScope": false
       },
       "../src/pot/pot.module.ts": {
@@ -3662,8 +3667,8 @@
         "affectsGlobalScope": false
       },
       "../src/rpc/rpc.controller.ts": {
-        "version": "820f0337d259ec67df35aac997caab18da015693c1662bc5eea18ab389b5105d",
-        "signature": "703fa7fb933c5fb4b2098601fce29b1af7a4c0b597be146fdbf4eec33ecac96d",
+        "version": "c451e171ac371d43cae20b629c5fad112a2da1f85d2f685d2681cea9ca93df90",
+        "signature": "b349fc11d2391a0de2c788ccb87438a9ce880f30cc087837d00781b55cba31ab",
         "affectsGlobalScope": false
       },
       "../src/rpc/rpc.service.ts": {
@@ -3682,7 +3687,7 @@
         "affectsGlobalScope": false
       },
       "../src/main.ts": {
-        "version": "48cdcad8fe2d9f5ab26aaf50d257ab5d5198e80a61e619193327e1678a4eb441",
+        "version": "243bf917b8faf4831c1dd7ad32bccffb66c0962ad43975abb8eb31e246e37442",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
         "affectsGlobalScope": false
       },
@@ -6778,9 +6783,13 @@
         "../node_modules/dotenv/types/index.d.ts",
         "../src/app.module.ts"
       ],
+      "../src/pot/dto/getallpotsbyid.dto.ts": [
+        "../src/pot/pot.entity.ts"
+      ],
       "../src/pot/pot.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/pot/dto/create-pot.dto.ts",
+        "../src/pot/dto/getallpotsbyid.dto.ts",
         "../src/pot/pot.entity.ts",
         "../src/pot/pot.service.ts"
       ],
@@ -6800,6 +6809,7 @@
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/pot/dto/create-pot.dto.ts",
+        "../src/pot/dto/getallpotsbyid.dto.ts",
         "../src/pot/pot.entity.ts",
         "../src/record/record.entity.ts"
       ],
@@ -6824,6 +6834,7 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/microservices/index.d.ts",
         "../src/pot/dto/create-pot.dto.ts",
+        "../src/pot/dto/getallpotsbyid.dto.ts",
         "../src/pot/pot.entity.ts",
         "../src/pot/pot.service.ts",
         "../src/record/record.service.ts"
@@ -9684,19 +9695,25 @@
       "../ormconfig.ts": [
         "../node_modules/@nestjs/typeorm/index.d.ts"
       ],
+      "../src/pot/dto/getallpotsbyid.dto.ts": [
+        "../src/pot/pot.entity.ts"
+      ],
       "../src/pot/pot.controller.ts": [
         "../src/pot/dto/create-pot.dto.ts",
+        "../src/pot/dto/getallpotsbyid.dto.ts",
         "../src/pot/pot.entity.ts",
         "../src/pot/pot.service.ts"
       ],
       "../src/pot/pot.service.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/pot/dto/create-pot.dto.ts",
+        "../src/pot/dto/getallpotsbyid.dto.ts",
         "../src/pot/pot.entity.ts",
         "../src/record/record.entity.ts"
       ],
       "../src/rpc/rpc.controller.ts": [
         "../src/pot/dto/create-pot.dto.ts",
+        "../src/pot/dto/getallpotsbyid.dto.ts",
         "../src/pot/pot.entity.ts",
         "../src/pot/pot.service.ts",
         "../src/record/record.service.ts"
@@ -10472,6 +10489,7 @@
       "../src/app.module.ts",
       "../src/main.ts",
       "../src/pot/dto/create-pot.dto.ts",
+      "../src/pot/dto/getallpotsbyid.dto.ts",
       "../src/pot/pot.controller.ts",
       "../src/pot/pot.entity.ts",
       "../src/pot/pot.module.ts",

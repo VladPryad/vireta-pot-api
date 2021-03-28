@@ -6,6 +6,7 @@ import "record.proto";
 
 service RPC {
     rpc CreatePot (CreatePotRequest) returns (CreatePotResponse);
+    rpc getAllPotsByAccountId(getAllPotsByAccountIdRequest)returns (getAllPotsByAccountIdResponse);
 }
 
 message CreatePotRequest {
@@ -15,4 +16,12 @@ message CreatePotRequest {
 
 message CreatePotResponse {
     pot.Pot pot = 1;
+}
+
+message getAllPotsByAccountIdResponse {
+    repeated pot.Pot pots = 1; 
+}
+
+message getAllPotsByAccountIdRequest{
+    string id = 1; 
 }

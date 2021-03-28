@@ -10,7 +10,7 @@ const microserviceOptions: GrpcOptions = {
   transport: Transport.GRPC,
   options: {
     package: "rpc",
-    url: `0.0.0.0:${process.env.PORT_GRPC}`,
+    url: process.env.GRPC_CONNECTION_URL,
     protoPath: join(process.cwd(), 'src/proto/rpc.proto')
   }
 };

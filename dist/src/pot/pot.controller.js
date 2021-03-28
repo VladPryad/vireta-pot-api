@@ -23,6 +23,9 @@ let PotController = class PotController {
     create(createPotDto) {
         return this.potService.create(createPotDto);
     }
+    getAllPotsAccountId(id) {
+        return this.potService.getAllPotsByAccountId({ id });
+    }
 };
 __decorate([
     common_1.Post(),
@@ -32,6 +35,13 @@ __decorate([
     __metadata("design:paramtypes", [create_pot_dto_1.default]),
     __metadata("design:returntype", Promise)
 ], PotController.prototype, "create", null);
+__decorate([
+    common_1.Get("user/:id"),
+    __param(0, common_1.Param("id")),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], PotController.prototype, "getAllPotsAccountId", null);
 PotController = __decorate([
     common_1.Controller('pot'),
     __metadata("design:paramtypes", [pot_service_1.PotService])

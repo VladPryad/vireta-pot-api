@@ -30,6 +30,14 @@ let PotService = class PotService {
         return this.potRepository.save(pot);
         ;
     }
+    async getAllPotsByAccountId(dto) {
+        const pots = await this.potRepository.find({
+            where: {
+                accountId: dto.id
+            }
+        });
+        return { pots };
+    }
 };
 PotService = __decorate([
     common_1.Injectable(),
