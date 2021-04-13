@@ -24,4 +24,7 @@ async function bootstrap() {
   await app.listen(process.env.PORT_REST);
 }
 
-(async () => await bootstrap())();
+(async () => {
+  await bootstrap();
+  console.log(`Pot API running on: \r\n REST: ${process.env.PORT_REST} \r\n gRPC: ${process.env.PORT_GRPC}`)
+})();
