@@ -19,7 +19,8 @@ let AppModule = class AppModule {
 AppModule = __decorate([
     common_1.Module({
         imports: [pot_module_1.PotModule, typeorm_1.TypeOrmModule.forRoot(ormconfig_1.default), rpc_module_1.RpcModule, record_module_1.RecordModule],
-        controllers: [record_controller_1.RecordController]
+        controllers: [record_controller_1.RecordController],
+        providers: []
     })
 ], AppModule);
 exports.AppModule = AppModule;

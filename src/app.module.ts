@@ -8,6 +8,7 @@ import { RecordModule } from './record/record.module';
 
 @Module({
   imports: [PotModule, TypeOrmModule.forRoot(ormconfig), RpcModule, RecordModule],
-  controllers: [RecordController]
+  controllers: [RecordController],
+  providers: []
 })
 export class AppModule {}

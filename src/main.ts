@@ -1,6 +1,8 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { GrpcOptions, MicroserviceOptions, Transport } from '@nestjs/microservices'
+import { WsAdapter } from '@nestjs/platform-ws'
+import { IoAdapter } from '@nestjs/platform-socket.io'
 import * as dotenv from 'dotenv';
 import { join } from 'path';
 
@@ -20,11 +22,13 @@ async function bootstrap() {
   
   app.connectMicroservice(microserviceOptions);
   await app.startAllMicroservicesAsync();
+  
+  app.useWebSocketAdapter(new WsAdapter(app));
 
   await app.listen(process.env.PORT_REST);
 }
 
 (async () => {
   await bootstrap();
-  console.log(`Pot API running on: \r\n REST: ${process.env.PORT_REST} \r\n gRPC: ${process.env.PORT_GRPC}`)
+  console.log(`Pot API running on: \r\n REST: ${process.env.PORT_REST} \r\n gRPC: ${process.env.PORT_GRPC} \r\n WS: ${process.env.PORT_WS}`)
 })();

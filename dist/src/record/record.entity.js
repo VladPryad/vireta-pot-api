@@ -18,6 +18,10 @@ __decorate([
 ], Record.prototype, "id", void 0);
 __decorate([
     typeorm_1.Column(),
+    __metadata("design:type", Number)
+], Record.prototype, "potId", void 0);
+__decorate([
+    typeorm_1.Column(),
     __metadata("design:type", String)
 ], Record.prototype, "ph", void 0);
 __decorate([
@@ -33,7 +37,7 @@ __decorate([
     __metadata("design:type", Number)
 ], Record.prototype, "index", void 0);
 __decorate([
-    typeorm_1.CreateDateColumn(),
+    typeorm_1.Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" }),
     __metadata("design:type", Date)
 ], Record.prototype, "timestamp", void 0);
 Record = __decorate([

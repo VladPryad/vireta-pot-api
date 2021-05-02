@@ -38,6 +38,15 @@ let PotService = class PotService {
         });
         return { pots };
     }
+    async getRecordsByPotId(dto) {
+        const records = await this.recordRepository
+            .createQueryBuilder("record")
+            .where(`record.potId = ${dto.id}`)
+            .orderBy("record.timestamp", "DESC")
+            .take(dto.periodHours * +process.env.SAMPLING_RATE || +process.env.RECORD_COUNT)
+            .getMany();
+        return { records };
+    }
 };
 PotService = __decorate([
     common_1.Injectable(),

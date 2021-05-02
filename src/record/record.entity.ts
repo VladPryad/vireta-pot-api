@@ -4,6 +4,9 @@ import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from 'typeor
 export default class Record {
   @PrimaryGeneratedColumn()
   public id: number;
+
+  @Column()
+  public potId: number;
  
   @Column()
   public ph: string;
@@ -17,6 +20,6 @@ export default class Record {
   @Column()
   public index: number;
 
-  @CreateDateColumn()
+  @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP"})
   public timestamp: Date;
 }
