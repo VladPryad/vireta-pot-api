@@ -11,45 +11,50 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var _a, _b, _c;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PotGateway = void 0;
 const websockets_1 = require("@nestjs/websockets");
 const ws_1 = require("ws");
+const events_1 = require("./constants/events");
+const pot_measurement_mock_1 = require("./mock/pot-measurement.mock");
 let PotGateway = class PotGateway {
     handleDisconnect(client) {
-        console.log(`WebSocket client disconnected ${client}`);
+        client.send(JSON.stringify({
+            event: events_1.CNN,
+            payload: "SERVER: CLOSED"
+        }));
+        console.log(`WebSocket client disconnected `);
     }
     handleConnection(client, ...args) {
-        console.log(`WebSocket client connected ${client.id}`);
+        client.send(JSON.stringify({
+            event: events_1.CNN,
+            payload: "SERVER: OPENED"
+        }));
+        console.log(`WebSocket client connected `);
+        client.onmessage = function (event) {
+            pot_measurement_mock_1.default(client, 5, 1000, event.data.toString());
+        };
     }
     afterInit(server) {
         console.log("WebSocket Gateway is running");
-    }
-    echo(client, payload) {
-        return Object.assign({}, payload);
     }
 };
 __decorate([
     __param(0, websockets_1.ConnectedSocket()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_a = typeof ws_1.Socket !== "undefined" && ws_1.Socket) === "function" ? _a : Object, Object]),
+    __metadata("design:paramtypes", [ws_1.default, Object]),
     __metadata("design:returntype", void 0)
 ], PotGateway.prototype, "handleConnection", null);
 __decorate([
     websockets_1.WebSocketServer(),
-    __metadata("design:type", typeof (_b = typeof ws_1.Server !== "undefined" && ws_1.Server) === "function" ? _b : Object)
+    __metadata("design:type", ws_1.Server)
 ], PotGateway.prototype, "server", void 0);
-__decorate([
-    websockets_1.SubscribeMessage('echo'),
-    __param(0, websockets_1.ConnectedSocket()),
-    __param(1, websockets_1.MessageBody()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_c = typeof ws_1.Socket !== "undefined" && ws_1.Socket) === "function" ? _c : Object, Object]),
-    __metadata("design:returntype", Object)
-], PotGateway.prototype, "echo", null);
 PotGateway = __decorate([
-    websockets_1.WebSocketGateway(+process.env.PORT_WS, { path: "/pot", transports: ["websocket"] })
+    websockets_1.WebSocketGateway(+process.env.PORT_WS, {
+        path: "/pot",
+        transports: ["websocket"],
+        origins: "*"
+    })
 ], PotGateway);
 exports.PotGateway = PotGateway;
 //# sourceMappingURL=pot.gateway.js.map

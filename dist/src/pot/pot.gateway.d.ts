@@ -1,9 +1,8 @@
-import { OnGatewayConnection, OnGatewayDisconnect, OnGatewayInit, WsResponse } from '@nestjs/websockets';
-import { Server, Socket } from 'ws';
+import { OnGatewayConnection, OnGatewayDisconnect, OnGatewayInit } from '@nestjs/websockets';
+import WebSocket, { Server } from 'ws';
 export declare class PotGateway implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect {
-    handleDisconnect(client: any): void;
-    handleConnection(client: Socket, ...args: any[]): void;
+    handleDisconnect(client: WebSocket): void;
+    handleConnection(client: WebSocket, ...args: any[]): void;
     afterInit(server: Server): void;
     server: Server;
-    echo(client: Socket, payload: any): WsResponse<any>;
 }

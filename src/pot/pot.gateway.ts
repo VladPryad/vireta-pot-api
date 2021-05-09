@@ -9,20 +9,38 @@ import {
   WebSocketServer,
   WsResponse } from '@nestjs/websockets';
 //import { Server, Socket } from 'socket.io';
-import { Server, Socket } from 'ws';
+import WebSocket, { Server, MessageEvent } from 'ws';
+import { CNN } from './constants/events';
+import mockSignal from './mock/pot-measurement.mock'
 
 
-@WebSocketGateway(+process.env.PORT_WS, { path: "/pot", transports: ["websocket"] })
+@WebSocketGateway(+process.env.PORT_WS, {
+  path: "/pot",
+  transports: ["websocket"],
+  origins: "*" })
 export class PotGateway implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect { 
 
-  handleDisconnect(client: any) {
-    console.log(`WebSocket client disconnected ${client}`); //TODO: SocketIO vs WS Adapter issue
+  handleDisconnect(client: WebSocket) {
+
+    client.send(JSON.stringify({
+      event: CNN,
+      payload: "SERVER: CLOSED"}));
+    console.log(`WebSocket client disconnected `);
   }
 
   handleConnection(
-    @ConnectedSocket() client: Socket,
+    @ConnectedSocket() client: WebSocket,
     ...args: any[]) {
-    console.log(`WebSocket client connected ${client.id}`);
+
+    client.send(JSON.stringify({
+      event: CNN,
+      payload: "SERVER: OPENED"}));
+    console.log(`WebSocket client connected `);
+
+    client.onmessage = function(event: MessageEvent): void {
+      mockSignal(client, 5, 1000, event.data.toString());
+    }
+
   }
 
   afterInit(server: Server) {
@@ -32,13 +50,4 @@ export class PotGateway implements OnGatewayInit, OnGatewayConnection, OnGateway
   @WebSocketServer()
   server: Server;
 
-  @SubscribeMessage('echo')
-  echo(
-    @ConnectedSocket() client: Socket,
-    @MessageBody() payload: any
-  ): WsResponse<any> {
-    return {
-      ...payload
-    }
-  }
 }
