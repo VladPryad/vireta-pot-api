@@ -3252,7 +3252,7 @@
         "affectsGlobalScope": false
       },
       "../src/pot/mock/pot-measurement.mock.ts": {
-        "version": "1db16c464634db70b2a3d2674a55dda809c72014ed3657977a8897b76e367407",
+        "version": "17997834077e4a3077292c7b0a0755e8d26e2db32d22dcb2cc1a37d96f1ac414",
         "signature": "2d5ee3aef28e02d17b79781cfa48f1c29e9a803e19da1a0070dd8d841ae3626c",
         "affectsGlobalScope": false
       },
