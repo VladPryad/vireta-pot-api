@@ -12,7 +12,7 @@ function default_1(socket, count, interval, id = "5fg54566v") {
         setTimeout(() => {
             socket.send(JSON.stringify({
                 event: events_1.MSG,
-                payload: mockMeasurement(id)
+                payload: mockMeasurement(id, interval)
             }));
         }, interval * i);
     }
@@ -21,44 +21,46 @@ function default_1(socket, count, interval, id = "5fg54566v") {
     }
 }
 exports.default = default_1;
-const mockMeasurement = (id) => {
+const mockMeasurement = (id, interval) => {
     const seed = Date.now();
-    let rands = [0, between(0, 100), between(0, 100)];
+    const kPh = 1;
+    const kH = 5;
+    const kM = 10;
+    let rands = [0, between(interval / 10, interval), between(interval / 10, interval)];
     let shift = rands.sort(compare);
-    console.log(shift);
     return {
         potId: id + '',
         potName: `Pot ` + id,
         measurements: {
             ph: [{
                     timestamp: seed + shift[0] + '',
-                    value: Math.random() * 10 + ''
+                    value: Math.random() * kPh + ''
                 }, {
                     timestamp: seed + shift[1] + '',
-                    value: Math.random() * 10 + ''
+                    value: Math.random() * kPh + ''
                 }, {
                     timestamp: seed + shift[2] + '',
-                    value: Math.random() * 10 + ''
+                    value: Math.random() * kPh + ''
                 }],
             humidity: [{
                     timestamp: seed + shift[0] + '',
-                    value: Math.random() * 10 + ''
+                    value: Math.random() * kH + ''
                 }, {
                     timestamp: seed + shift[1] + '',
-                    value: Math.random() * 10 + ''
+                    value: Math.random() * kH + ''
                 }, {
                     timestamp: seed + shift[2] + '',
-                    value: Math.random() * 10 + ''
+                    value: Math.random() * kH + ''
                 }],
             mineralization: [{
                     timestamp: seed + shift[0] + '',
-                    value: Math.random() * 10 + ''
+                    value: Math.random() * kM + ''
                 }, {
                     timestamp: seed + shift[1] + '',
-                    value: Math.random() * 10 + ''
+                    value: Math.random() * kM + ''
                 }, {
                     timestamp: seed + shift[2] + '',
-                    value: Math.random() * 10 + ''
+                    value: Math.random() * kM + ''
                 }]
         },
         total: 3

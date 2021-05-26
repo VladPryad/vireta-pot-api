@@ -3252,12 +3252,12 @@
         "affectsGlobalScope": false
       },
       "../src/pot/mock/pot-measurement.mock.ts": {
-        "version": "17997834077e4a3077292c7b0a0755e8d26e2db32d22dcb2cc1a37d96f1ac414",
+        "version": "db063951e64e3f1ff0e4b7d4fec1a5c15fab91ec46f72b58253e4d88350bc544",
         "signature": "2d5ee3aef28e02d17b79781cfa48f1c29e9a803e19da1a0070dd8d841ae3626c",
         "affectsGlobalScope": false
       },
       "../src/pot/pot.gateway.ts": {
-        "version": "f38d0bb4d986e37cce84aadba7615ca732ed4eaa6cc25ba5618836b9445e9e81",
+        "version": "fa299d6ffc7592bacf9f30f21fa3dd2a40e4758d28fc75953f013889bf8ba590",
         "signature": "c840a6c80d5426f4fe8fc49c1f775ddf56d017020166a72fefa837df019d9ff1",
         "affectsGlobalScope": false
       },

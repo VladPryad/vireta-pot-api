@@ -38,7 +38,7 @@ export class PotGateway implements OnGatewayInit, OnGatewayConnection, OnGateway
     console.log(`WebSocket client connected `);
 
     client.onmessage = function(event: MessageEvent): void {
-      mockSignal(client, 5, 1000, event.data.toString());
+      mockSignal(client, 10, 1000, event.data.toString());
     }
 
   }
