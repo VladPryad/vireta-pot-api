@@ -3247,17 +3247,17 @@
         "affectsGlobalScope": false
       },
       "../src/pot/dto/pot-record.dto.ts": {
-        "version": "3ef81907d0dd061ad97329a1c262e6896b2ab6de495a2ea46fce320d35a40e77",
-        "signature": "da77d5f78237a3f7e3ae45c080543f5452fced919618d8effd5e7fa9aac955fa",
+        "version": "df68063aedd8684e00f0ef43d6df9b4141ff8f19237e2400e6209de434670e70",
+        "signature": "e5e4c459f7f9aa38c92f84eb28b725efda01117e1c95ad331095742473e95513",
         "affectsGlobalScope": false
       },
       "../src/pot/mock/pot-measurement.mock.ts": {
-        "version": "db063951e64e3f1ff0e4b7d4fec1a5c15fab91ec46f72b58253e4d88350bc544",
+        "version": "679602ec8ca579212c144a37230a758896b566670e4ce16f77196c825bfa9819",
         "signature": "2d5ee3aef28e02d17b79781cfa48f1c29e9a803e19da1a0070dd8d841ae3626c",
         "affectsGlobalScope": false
       },
       "../src/pot/pot.gateway.ts": {
-        "version": "fa299d6ffc7592bacf9f30f21fa3dd2a40e4758d28fc75953f013889bf8ba590",
+        "version": "9a75a3aca0031f7c532d9ec8691667b3857a4e7325bd11b80f749588b380e4f6",
         "signature": "c840a6c80d5426f4fe8fc49c1f775ddf56d017020166a72fefa837df019d9ff1",
         "affectsGlobalScope": false
       },

@@ -7,7 +7,7 @@ function between(min, max) {
 function compare(a, b) {
     return a - b;
 }
-function default_1(socket, count, interval, id = "5fg54566v") {
+function default_1(socket, count, interval, id = "default") {
     function delay(i) {
         setTimeout(() => {
             socket.send(JSON.stringify({
@@ -23,45 +23,72 @@ function default_1(socket, count, interval, id = "5fg54566v") {
 exports.default = default_1;
 const mockMeasurement = (id, interval) => {
     const seed = Date.now();
-    const kPh = 1;
-    const kH = 5;
-    const kM = 10;
+    const phMin = "0";
+    const hMin = "0";
+    const tMin = "0";
+    const phMax = "14";
+    const hMax = "100";
+    const tMax = "1000";
+    const phRange = {
+        from: 4.8,
+        to: 6.2
+    };
+    const hRange = {
+        from: 60,
+        to: 85
+    };
+    const tRange = {
+        from: 270.15,
+        to: 303.15
+    };
     let rands = [0, between(interval / 10, interval), between(interval / 10, interval)];
     let shift = rands.sort(compare);
     return {
         potId: id + '',
         potName: `Pot ` + id,
         measurements: {
-            ph: [{
-                    timestamp: seed + shift[0] + '',
-                    value: Math.random() * kPh + ''
-                }, {
-                    timestamp: seed + shift[1] + '',
-                    value: Math.random() * kPh + ''
-                }, {
-                    timestamp: seed + shift[2] + '',
-                    value: Math.random() * kPh + ''
-                }],
-            humidity: [{
-                    timestamp: seed + shift[0] + '',
-                    value: Math.random() * kH + ''
-                }, {
-                    timestamp: seed + shift[1] + '',
-                    value: Math.random() * kH + ''
-                }, {
-                    timestamp: seed + shift[2] + '',
-                    value: Math.random() * kH + ''
-                }],
-            mineralization: [{
-                    timestamp: seed + shift[0] + '',
-                    value: Math.random() * kM + ''
-                }, {
-                    timestamp: seed + shift[1] + '',
-                    value: Math.random() * kM + ''
-                }, {
-                    timestamp: seed + shift[2] + '',
-                    value: Math.random() * kM + ''
-                }]
+            ph: {
+                min: phMin,
+                max: phMax,
+                values: [{
+                        timestamp: seed + shift[0] + '',
+                        value: between(phRange.from, phRange.to) + ''
+                    }, {
+                        timestamp: seed + shift[1] + '',
+                        value: between(phRange.from, phRange.to) + ''
+                    }, {
+                        timestamp: seed + shift[2] + '',
+                        value: between(phRange.from, phRange.to) + ''
+                    }]
+            },
+            humidity: {
+                min: hMin,
+                max: hMax,
+                values: [{
+                        timestamp: seed + shift[0] + '',
+                        value: between(hRange.from, hRange.to) + ''
+                    }, {
+                        timestamp: seed + shift[1] + '',
+                        value: between(hRange.from, hRange.to) + ''
+                    }, {
+                        timestamp: seed + shift[2] + '',
+                        value: between(hRange.from, hRange.to) + ''
+                    }]
+            },
+            temperature: {
+                min: tMin,
+                max: tMax,
+                values: [{
+                        timestamp: seed + shift[0] + '',
+                        value: between(tRange.from, tRange.to) + ''
+                    }, {
+                        timestamp: seed + shift[1] + '',
+                        value: between(tRange.from, tRange.to) + ''
+                    }, {
+                        timestamp: seed + shift[2] + '',
+                        value: between(tRange.from, tRange.to) + ''
+                    }]
+            }
         },
         total: 3
     };
