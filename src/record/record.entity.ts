@@ -8,16 +8,16 @@ export default class Record {
   @Column()
   public potId: number;
  
-  @Column()
+  @Column({nullable: true})
   public ph: string;
  
-  @Column()
+  @Column({nullable: true})
   public humidity: string;
 
-  @Column()
+  @Column({nullable: true})
   public salinity: string;
  
-  @Column()
+  @Column({nullable: true})
   public index: number;
 
   @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP"})

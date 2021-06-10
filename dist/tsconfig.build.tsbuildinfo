@@ -3077,7 +3077,7 @@
         "affectsGlobalScope": false
       },
       "../src/record/record.entity.ts": {
-        "version": "9a53c9a84972c962c03256f31f727861b2565a894896222f839a50c8a4aa0ac1",
+        "version": "617c8b62ec7421f871f209876ba4cef6b35692027c14dafaaaffef8351704d38",
         "signature": "5a0763ea24f0ea9ef6ea7966297edb3296953ff9d832e2aea494e8843a4070f2",
         "affectsGlobalScope": false
       },
@@ -3107,7 +3107,7 @@
         "affectsGlobalScope": false
       },
       "../src/pot/pot.controller.ts": {
-        "version": "80233523d5a45d5919b5855fc4bfbcbbcbff61b0ae2af1ec86175a0da4c9c1fc",
+        "version": "e0402f20341d940b8588f1323741cb229a79321cf619d3218979c1c6fe53b2fa",
         "signature": "c66fe559ae9c0bd5427721b98ef5a0214da6e3bd7ea0f808e39eba06378ba2f2",
         "affectsGlobalScope": false
       },
@@ -3257,7 +3257,7 @@
         "affectsGlobalScope": false
       },
       "../src/pot/pot.gateway.ts": {
-        "version": "9a75a3aca0031f7c532d9ec8691667b3857a4e7325bd11b80f749588b380e4f6",
+        "version": "4bd26b75385da2669ac5dbe7366cbbe8ad29aecabe65e97fe6b2a43e6b78c0ab",
         "signature": "c840a6c80d5426f4fe8fc49c1f775ddf56d017020166a72fefa837df019d9ff1",
         "affectsGlobalScope": false
       },
@@ -3266,14 +3266,14 @@
         "signature": "43a4ec25c2f5338ec8b6db25929143f2c794cfb564eed639f960fa368f976a92",
         "affectsGlobalScope": false
       },
-      "../src/record/record.controller.ts": {
-        "version": "a6463175227fa126fc27196b20fccefbd2a905e16e2dcd68696abb3859857d01",
-        "signature": "4cb7af04dc7e9aae24ea94cbd79a16108c029dbe8c939338029b38be8af5d950",
+      "../src/record/record.service.ts": {
+        "version": "ef248c66da5c62d051052b1f992c9e25480d11e8dae5e29e65ee413d0b189bf2",
+        "signature": "afe9bcafd8e2ff4c0abe0fbc2a155d831ccdbe83afd21ec9aad9ce53b404cfa1",
         "affectsGlobalScope": false
       },
-      "../src/record/record.service.ts": {
-        "version": "f36103cdb5d92596b203b6f4cd2196e7c1597ab3c16c20201324b9d0b9172900",
-        "signature": "dd0280596721cf904348770b34dc447ab9f8779eb161c46176ee18c42532dfa5",
+      "../src/record/record.controller.ts": {
+        "version": "d510460dea5d0b7b03702f563f007d3159151018c02c97c25979af3127da4966",
+        "signature": "fa5290a1a8188b3ec3b89776957fde867aa89e3555ff220291ebe676be2535c7",
         "affectsGlobalScope": false
       },
       "../src/record/record.module.ts": {
@@ -7136,7 +7136,9 @@
         "../src/record/record.entity.ts"
       ],
       "../src/record/record.controller.ts": [
-        "../node_modules/@nestjs/common/index.d.ts"
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/record/record.entity.ts",
+        "../src/record/record.service.ts"
       ],
       "../src/record/record.entity.ts": [
         "../node_modules/typeorm/index.d.ts"
@@ -7150,7 +7152,10 @@
         "../src/record/record.service.ts"
       ],
       "../src/record/record.service.ts": [
-        "../node_modules/@nestjs/common/index.d.ts"
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../node_modules/typeorm/index.d.ts",
+        "../src/record/record.entity.ts"
       ],
       "../src/rpc/rpc.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -10151,6 +10156,14 @@
         "../src/pot/dto/getallpotsbyid.dto.ts",
         "../src/pot/dto/getrecordsbypotid.dto.ts",
         "../src/pot/pot.entity.ts",
+        "../src/record/record.entity.ts"
+      ],
+      "../src/record/record.controller.ts": [
+        "../src/record/record.entity.ts",
+        "../src/record/record.service.ts"
+      ],
+      "../src/record/record.service.ts": [
+        "../node_modules/typeorm/index.d.ts",
         "../src/record/record.entity.ts"
       ],
       "../src/rpc/rpc.controller.ts": [

@@ -32,7 +32,7 @@ let PotGateway = class PotGateway {
         }));
         console.log(`WebSocket client connected `);
         client.onmessage = function (event) {
-            pot_measurement_mock_1.default(client, 15, 1000, event.data.toString());
+            pot_measurement_mock_1.default(client, 50, 500, event.data.toString());
         };
     }
     afterInit(server) {
